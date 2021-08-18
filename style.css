@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,600;0,700;1,300;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-color: #606c76;
+  --light-color: #f4f5f6;
+  --primary-color: #9b4dca;
+  --warning-color: #f32013;
+  --success-color: #4a934a;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Nunito", sans-serif;
+  background: var(--light-color);
+  color: var(--dark-color);
+}
+
+/* global styles */
+svg {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.container {
+  margin: 2rem auto;
+  width: 80%;
+  display: grid;
+  column-gap: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+  box-shadow: 0.1rem 0.1rem 0.4rem var(--dark-color),
+    inset 0.1rem 0.1rem 0.4rem var(--dark-color);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+button {
+  background: var(--primary-color);
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  transition: all 0.2s ease-in-out;
+  color: var(--light-color);
+  font-size: 2.5rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--dark-color);
+}
+button:active {
+  transform: scale(0.98);
+}
+
+input,
+.input {
+  outline: none;
+  border: 0.2rem solid var(--dark-color);
+  padding: 1rem 2.5rem;
+  min-height: 6rem;
+  font-size: 4rem;
+  letter-spacing: 1.5rem;
+  text-align: center;
+  border-radius: 1.5rem;
+  width: 60%;
+  margin: auto;
+}
+
+/* pin-generator */
+.pin-generator-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.pin-generator-container .display {
+  margin: 4rem auto;
+}
+
+.pin-generator-container .pin-generate-btn {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 100%;
+  position: relative;
+}
+
+/* pin-input-container */
+.pin-input-container {
+  display: flex;
+  flex-flow: column;
+}
+
+.pin-input-container .keypad {
+  width: 60%;
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2rem;
+}
+
+.key,
+.del,
+.clear {
+  border: 0.25rem solid var(--primary-color);
+  border-radius: 2rem;
+  height: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.key:hover,
+.del:hover,
+.clear:hover {
+  background: var(--primary-color);
+  color: var(--light-color);
+}
+
+button.pin-checker {
+  width: 50%;
+  margin: auto;
+}
+
+.limitation {
+  text-align: center;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--success-color);
+}
+.limitation span {
+  margin-right: 0.5rem;
+}
+
+.limitation svg {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+.messages {
+  grid-column: 1/-1;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.messages .success,
+.messages .warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.messages .success svg,
+.messages .warning svg {
+  margin-right: 1rem;
+}
+
+.messages .success {
+  color: var(--success-color);
+}
+.messages .warning {
+  color: var(--warning-color);
+}
+
+.messages .success.active,
+.messages .warning.active {
+  visibility: visible;
+}
+
+/* media queries */
+
+@media (max-width: 991px) {
+  .container {
+    width: 100%;
+    gap: 0;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .pin-generator-container {
+    margin-bottom: 4rem;
+  }
+  .pin-generator-container .display {
+    margin: 2rem auto;
+  }
+
+  input,
+  .input {
+    font-size: 2.5rem;
+  }
+}
