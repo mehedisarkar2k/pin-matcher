@@ -64,7 +64,7 @@ submitBTN.addEventListener("click", () => {
 
     const pin = generatePinDisplay.innerText;
 
-    if (Number(pin) === Number(inputPin)) {
+    if (Number(pin) === Number(inputPin) && pin != "") {
       inputBorderField[0].style.borderColor = "#4a934a";
       inputBorderField[1].style.borderColor = "#4a934a";
       success.classList.add("active");
